@@ -4,88 +4,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Small Business Apps</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="/favicon/favicon.ico" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+    <link href="styles.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="index.css" />
 </head>
 
 <body>
-    <header id="header">
-        <div class="container">
-            <h1>Small Business Apps</h1>
-            <nav>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
+    <header class="header">
+        <div class="header__container container">
+            <nav class="nav">
+                <a href="#" class="nav__logo">SBA</a>
+                <div class="nav__menu">
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="nav__toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </nav>
         </div>
     </header>
 
-    <section id="about" class="section">
-        <div class="container">
-            <h2>About Us</h2>
-            <div class="card">
-                <p>We specialize in creating affordable and efficient apps for small businesses in the Southeast US.</p>
+    <main class="main">
+        <section id="hero" class="hero">
+            <div class="bg"></div>
+            <div class="bg bg2"></div>
+            <div class="bg bg3"></div>
+            <div class="hero__container container">
+                <h1 class="hero__title">Welcome to Small Business Apps</h1>
+                <p class="hero__subtitle">We build affordable and efficient apps for small businesses.</p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="services" class="section">
-        <div class="container">
-            <h2>Our Services</h2>
-            <div class="card">
-                <h3>App Development</h3>
-                <p>Custom app development tailored to your business needs.</p>
+        <section id="about" class="section--alternate">
+            <div class="section__container container">
+                <h2 class="section__title">01. About Us</h2>
+                <div class="row">
+                    <div class="section__content bioText">
+                        <p>We specialize in creating affordable and efficient apps for small businesses in the Southeast
+                            US. Our team is dedicated to helping businesses grow by providing customized app solutions
+                            that cater to their unique needs.</p>
+                    </div>
+                    <img class="profilePicture" src="/Images/companyLogo.png" alt="Company Logo" />
+                </div>
             </div>
-            <div class="card">
-                <h3>Maintenance</h3>
-                <p>Ongoing support and maintenance to keep your app running smoothly.</p>
-            </div>
-            <div class="card">
-                <h3>Consulting</h3>
-                <p>Expert advice to help you navigate the world of mobile apps.</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="portfolio" class="section">
-        <div class="container">
-            <h2>Portfolio</h2>
-            <div class="card">
-                <img src="portfolio1.jpg" alt="Project 1">
-                <h3>Project 1</h3>
-                <p>Details about project 1.</p>
+        <section id="services" class="section--alternate2">
+            <div class="section__container container">
+                <h2 class="section__title">02. Our Services</h2>
+                <div class="section__content">
+                    <div class="card">
+                        <h3>App Development</h3>
+                        <p>Custom app development tailored to your business needs.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Maintenance</h3>
+                        <p>Ongoing support and maintenance to keep your app running smoothly.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Consulting</h3>
+                        <p>Expert advice to help you navigate the world of mobile apps.</p>
+                    </div>
+                </div>
             </div>
-            <div class="card">
-                <img src="portfolio2.jpg" alt="Project 2">
-                <h3>Project 2</h3>
-                <p>Details about project 2.</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="testimonials" class="section">
-        <div class="container">
-            <h2>Testimonials</h2>
-            <div class="card">
-                <p>"This company transformed our business with their amazing app!"</p>
-                <h4>- Happy Client</h4>
+        <section id="portfolio" class="section--alternate">
+            <div class="section__container container">
+                <h2 class="section__title">03. Portfolio</h2>
+                <div class="section__content">
+                    <div class="project">
+                        <h3>Project 1</h3>
+                        <p>Details about project 1.</p>
+                    </div>
+                    <div class="project">
+                        <h3>Project 2</h3>
+                        <p>Details about project 2.</p>
+                    </div>
+                </div>
             </div>
-            <div class="card">
-                <p>"Incredible service and support. Highly recommended."</p>
-                <h4>- Satisfied Customer</h4>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="contact" class="section">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <div class="card">
-                <form>
+        <section id="testimonials" class="section--alternate2">
+            <div class="section__container container">
+                <h2 class="section__title">04. Testimonials</h2>
+                <div class="section__content">
+                    <div class="testimonial">
+                        <p>"This company transformed our business with their amazing app!"</p>
+                        <h4>- Happy Client</h4>
+                    </div>
+                    <div class="testimonial">
+                        <p>"Incredible service and support. Highly recommended."</p>
+                        <h4>- Satisfied Customer</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="section__container container">
+                <h2 class="section__title">05. Get In Touch</h2>
+                <p>Have a question or want to work together? Reach out to us!</p>
+                <form action="https://formspree.io/f/your-form-id" method="POST">
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name" required>
 
@@ -96,18 +127,34 @@
                     <textarea id="message" name="message" required></textarea>
 
                     <button type="submit">Submit</button>
+
+                    <!-- Custom success message -->
+                    <p class="success" style="display:none; color:green;">Thank you for your message. We will get back
+                        to you soon!</p>
+                    <!-- Custom error message -->
+                    <p class="error" style="display:none; color:red;">Oops! There was a problem with your submission.
+                        Please try again.</p>
                 </form>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <footer id="footer">
-        <div class="container">
-            <p>&copy; 2024 Small Business Apps. All rights reserved.</p>
+    <footer class="footer">
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/your-linkedin-profile"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://github.com/your-github-profile"><i class="fab fa-github"></i></a>
+        </div>
+        <div class="emailBar">
+            <a class="emailBarText" href="mailto:your-email@example.com" target="_blank">your-email@example.com</a>
+        </div>
+        <div class="footer__container container">
+            <p>&copy; 2024 Small Business Apps. Designed and Developed by Your Name</p>
         </div>
     </footer>
 
-    <script src="scripts.js"></script>
+    <!-- Add JavaScript files -->
+    <script src="index.js"></script>
+    <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

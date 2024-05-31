@@ -1,97 +1,507 @@
-/* Reset some basic elements */
+/* Global Styles */
+html{
+    scroll-behavior: smooth;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    transition: all 0.3s ease-in-out;
 }
 
-/* Body and container styling */
 body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
     color: #333;
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-    background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
 .container {
-    width: 80%;
-    max-width: 1200px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+}
+
+.nav__logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.nav__menu {
+    display: none;
+}
+
+.nav__toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 1.5rem;
+    cursor: pointer;
+}
+
+.nav__toggle span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #333;
+}
+
+@media (min-width: 768px) {
+    .nav__menu {
+        display: flex;
+    }
+
+    .nav__toggle {
+        display: none;
+    }
+
+    .nav__menu ul {
+        display: flex;
+        list-style: none;
+    }
+
+    .nav__menu li {
+        margin-left: 1.5rem;
+    }
+
+    .nav__menu a {
+        font-size: 0.875rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+    }
+}
+
+/* BEGIN SECTION DYNAMICBACKGROUND */
+
+.bg {
+    animation: slide 3s ease-in-out infinite alternate;
+    background-image: linear-gradient(-60deg, #E09F3E 50%, #9E2A2B 50%);
+    bottom: 0;
+    left: -50%;
+    opacity: .5;
+    position: fixed;
+    right: -50%;
+    top: 0;
+    z-index: -1;
+}
+
+.bg2 {
+    animation-direction: alternate-reverse;
+    animation-duration: 4s;
+}
+
+.bg3 {
+    animation-duration: 5s;
+}
+
+.hero__container {
+    background-color: rgba(255, 255, 255, .8);
+    border-radius: .25em;
+    box-shadow: 0 0 .25em rgba(0, 0, 0, .25);
+    box-sizing: border-box;
+    padding: 10vmin;
+    /* position: fixed; */
+    text-align: center;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(-25%);
+    }
+
+    100% {
+        transform: translateX(25%);
+    }
+}
+
+/* END SECTION DYNAMICBACKGROUND */
+
+/* Hero */
+.hero {
+    height: calc(100vh - 0rem);
+    /* In case I want to shorten depending on screen */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero__title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.hero__subtitle {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+}
+
+/* Sections */
+.section {
+    padding: 6rem 0;
+    color: #F3F7F0;
+}
+
+.section__title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+}
+
+.section__content {
+    max-width: 800px;
     margin: 0 auto;
 }
 
-/* Header styling */
-header {
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
+.section--alternate {
+    background-color: #f5f5f5;
+    padding: 6rem 0
 }
 
-header h1 {
-    margin: 0;
+.section--alternate2 {
+    background-color: #fff;
+    padding: 6rem 0
 }
 
-header nav ul {
+.skills,
+.work {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 1.5rem;
     list-style: none;
-    padding: 0;
+    padding-left: 0;
 }
 
-header nav ul li {
-    display: inline;
-    margin: 0 15px;
+.skills li,
+.work li {
+    font-size: 1.125rem;
+    font-weight: 400;
+    border: 1px solid #e0e0e0;
+    padding: 1rem;
 }
 
-header nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.3s;
+.skills li {
+    background-color: #f5f5f5;
 }
 
-header nav ul li a:hover {
-    color: #2c3e50;
+.work li {
+    background-color: #fff;
 }
 
-/* Section styling */
-.section {
-    padding: 80px 0;
+/* Footer */
+.footer {
+    /* background-color: #474545; */
+    color: #F3F7F0;
+    opacity: .8;
+    height: 4rem;
+    margin-top: 20rem;
+
+}
+
+.creditFooter {
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 1rem;
+    display: block;
     text-align: center;
-    color: #333;
-    position: relative;
 }
 
-.section h2 {
-    margin-bottom: 20px;
-    color: #fff;
+.social-icons {
+    position: fixed;
+    top: 53%;
+    left: 1%;
+    transform: translateY(-50%);
 }
 
-.section .card {
+.social-icons a {
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.social-icons i {
+    font-size: 2rem;
+    color: #000;
+    transition: all 0.3s ease-in-out;
+}
+
+.social-icons i:hover {
+    color: #0077b5;
+    /* LinkedIn */
+    cursor: pointer;
+}
+
+.emailBarText {
+    color: black;
+    margin-top: 20px;
+    margin-right: auto;
+    padding-top: 10px;
+    letter-spacing: 0.1em;
+    writing-mode: vertical-rl;
+    top: 44%;
+    right: 1%;
+    position: fixed;
+    transition: all 0.3s ease-in-out;
+}
+
+.emailBarText:hover {
+    color: #0077b5;
+    cursor: pointer;
+}
+
+@media (max-width: 767px) {
+    .container {
+        max-width: 100%;
+        padding: 0 2rem;
+    }
+
+    .nav__menu {
+        position: fixed;
+        top: 4rem;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 4rem);
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 998;
+        transform: translateY(-100%);
+        transition: transform 0.3s ease;
+    }
+
+    .nav__menu.active {
+        transform: translateY(0);
+    }
+
+    .nav__menu ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav__menu li {
+        margin: 1rem 0;
+    }
+
+    .nav__menu a {
+        font-size: 1.5rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+    }
+
+    .nav__toggle {
+        display: flex;
+    }
+}
+
+.emailLinkBtn {
+    color: white;
+    border: white solid 2px;
+    border-radius: 5%;
+    left: 45%;
+    margin-top: 2em;
+    position: absolute;
+    outline: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 18px;
+}
+
+.emailLinkBtn:hover {
+    color: #0077b5;
+    border: #0077b5 solid 2px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.jobs__StyledTabPanels .jobs__StyledTabPanel {
+    display: none;
+}
+
+.jobs__StyledTabPanels .jobs__StyledTabPanel.active {
+    display: block;
+}
+
+.projectScreenshots {
+    display: flex;
+    justify-content: center;
+}
+
+.appScreenshot {
+    margin: 10px;
+    width: 30%;
+    height: auto;
+}
+
+.appIcon {
+    width: 15%;
+    margin: 10px;
+    height: auto;
+}
+
+.projectHeading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-title {
+    text-align: center;
+}
+
+.profilePicture {
+    width: 40%;
+}
+
+.bioText {
+    width: 50%;
+    margin-left: 2rem;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.jRow {
+    display: flex;
+}
+
+.jobs__StyledTabButtons {
+    display: block;
+    width: 25%;
+    margin-right: 10%;
+    margin-top: 4rem;
+    height: 100%;
+}
+
+.jobs__StyledTabPanels {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 65%;
+}
+
+.tablink {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem .5rem;
+    width: 100%;
+    margin-right: 1rem;
+    border: none;
+    background-color: inherit;
+}
+
+.tablink:hover {
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+.active {
+    border-left: 4px solid #0077b5;
+}
+
+.projSkills {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 1.5rem;
+    list-style: none;
+    padding-left: 0;
+}
+
+.projSkills li {
+    font-size: 14px;
+    border: 1px solid #e0e0e0;
+    padding: .5rem;
+    background-color: #f5f5f5;
+}
+
+.project-link {
+    color: blue;
+    font-size: 16px;
+}
+
+.tableauPlaceholder {
+    /* Center horizontally */
+    margin-left: auto;
+    margin-right: auto;
+
+    /* Center vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Optionally, set a fixed width and height or adjust as needed */
+    width: 80%;
+    /* Adjust the width as needed */
+    height: 400px;
+    /* Adjust the height as needed */
+}
+
+/* Card Styles */
+.card {
     background: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
     padding: 20px;
-    margin-bottom: 20px;
+    margin: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.section .card img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
     transition: transform 0.3s;
+    text-align: center;
 }
 
-.section .card img:hover {
+.card:hover {
     transform: scale(1.05);
 }
 
+/* Skills Section Cards */
+.skills {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.skills .card {
+    width: 30%;
+}
+
+/* Portfolio and Testimonials Cards */
+.project, .testimonial {
+    margin-bottom: 20px;
+}
+
+/* Form Styles */
 form {
     display: flex;
     flex-direction: column;
@@ -101,6 +511,7 @@ form {
 form label {
     margin-top: 20px;
     font-size: 1.1rem;
+    color: #333;
 }
 
 form input, form textarea {
@@ -125,44 +536,4 @@ form button {
 
 form button:hover {
     background: #16a085;
-}
-
-/* Footer styling */
-footer {
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
-    margin-top: 40px;
-}
-
-/* Keyframes for gradient animation */
-@keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-    header nav ul {
-        display: flex;
-        flex-direction: column;
-    }
-    
-    header nav ul li {
-        margin: 10px 0;
-    }
-}
-
-/* Padding for sections to account for fixed header */
-.section {
-    padding-top: 100px; /* Adjust this value based on your header height */
-    padding-bottom: 80px;
 }

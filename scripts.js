@@ -1,17 +1,29 @@
-document.addEventListener('DOMContentLoaded', function () {
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
 
-    // Sticky header effect
-    window.addEventListener('scroll', function () {
-        const header = document.querySelector('header');
-        header.classList.toggle('sticky', window.scrollY > 0);
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.querySelector('form');
+    const successMessage = document.querySelector('.success');
+    const errorMessage = document.querySelector('.error');
+
+    form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+
+        if (response.ok) {
+            form.reset();
+            successMessage.style.display = 'block';
+            errorMessage.style.display = 'none';
+        } else {
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'block';
+        }
     });
 });
