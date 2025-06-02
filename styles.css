@@ -186,12 +186,12 @@ a {
 
 .section--alternate {
     background-color: #f5f5f5;
-    padding: 6rem 0
+    padding: 6rem 0;
 }
 
 .section--alternate2 {
     background-color: #fff;
-    padding: 6rem 0
+    padding: 6rem 0;
 }
 
 .skills,
@@ -226,7 +226,6 @@ a {
     opacity: .8;
     height: 4rem;
     margin-top: 20rem;
-
 }
 
 .creditFooter {
@@ -384,8 +383,8 @@ a {
 .companyLogo {
     width: 30rem;
     height: auto; /* Maintain aspect ratio */
-            display: block; /* Remove inline spacing */
-            margin: 0 auto; /* Center the image */
+    display: block; /* Remove inline spacing */
+    margin: 0 auto; /* Center the image */
 }
 
 .bioText {
@@ -506,9 +505,9 @@ a {
     margin-bottom: 20px;
 }
 
-.end{
+.end {
     padding: 5rem;
-    height:38rem;
+    height: 38rem;
 }
 
 /* Form Styles */
@@ -551,3 +550,101 @@ form button:hover {
 #message {
     min-height: 12rem;
 }
+
+/* CTA Button for Book Link */
+.cta-btn {
+    display: inline-block;
+    background-color: #333;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: background 0.3s;
+    text-align: center;
+}
+
+.cta-btn:hover {
+    background-color: #000;
+    cursor: pointer;
+}
+
+/* ------------------------------------------------ */
+/*   BEGIN: New/Modified Rules for “How We Help”     */
+/* ------------------------------------------------ */
+
+/* 1. Add padding inside the container so “How We Help” breathes */
+.section--alternate .section__container {
+    /* extra vertical padding around heading & content */
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+/* 2. Adjust spacing below the section title */
+.section--alternate .section__title {
+    margin-bottom: 2rem;
+}
+
+/* 3. Flex container for text + GIF */
+.help-wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 4rem;         /* more horizontal breathing room */
+    margin-top: 1.5rem;
+}
+
+/* 4. Text column sizing + max-width (no overly long lines) */
+.help-content {
+    flex: 1 1 50%;
+    max-width: 600px;
+}
+
+/* 5. Extra spacing between paragraphs for readability */
+.help-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.6;
+}
+
+/* 6. Add margin above the CTA link inside “How We Help” */
+.help-content .cta-btn {
+    margin-top: 1.5rem;
+}
+
+/* 7. GIF column sizing */
+.help-image {
+    flex: 1 1 40%;
+    text-align: center;
+}
+
+/* 8. Make sure the GIF scales nicely */
+.help-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    
+}
+.center{
+    max-width: fit-content;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* 9. On mobile, stack text & image, center them, with extra margin */
+@media (max-width: 767px) {
+    .help-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+    .help-content {
+        flex: 1 1 100%;
+        max-width: none;
+        margin-bottom: 2rem;
+    }
+    .help-image {
+        flex: 1 1 100%;
+    }
+}
+/* ------------------------------------------------ */
+/*    END: New/Modified Rules for “How We Help”      */
+/* ------------------------------------------------ */
