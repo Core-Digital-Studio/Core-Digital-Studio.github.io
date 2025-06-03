@@ -17,6 +17,25 @@ body {
     color: #333;
 }
 
+#workflowAutopilotLogo {
+    height: 2.2rem;
+    width: fit-content;
+    margin-left: 1rem;
+}
+
+#workflowAutopilotLogo2 {
+    height: 4rem;
+    width: fit-content;
+    margin-left: 1rem;
+    fill: #333;
+    stroke: #333;
+}
+
+.nav__logo-container {
+    display: flex;
+    align-items: center;
+}
+
 a {
     text-decoration: none;
     color: inherit;
@@ -126,7 +145,7 @@ a {
     border-radius: .25em;
     box-shadow: 0 0 .25em rgba(0, 0, 0, .25);
     box-sizing: border-box;
-    padding: 10vmin;
+    padding: 5vmin 10vmin 10vmin 10vmin;
     /* position: fixed; */
     text-align: center;
 }
