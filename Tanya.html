@@ -86,12 +86,18 @@
       font-size: 0.9rem;
       color: #666;
     }
+    /* target the exact anchor Chatwoot injects */
+    a.branding--link,
+    a[href*="chatwoot.com?utm_source=widget_branding"] {
+    display: none !important;
+    }
+
   </style>
 </head>
 <body>
 
   <header>
-    <img src="logo.png" alt="Your Logo" style="max-width:120px; margin-bottom:1rem;">
+    <img src="images\WorkflowAutopilot.svg" alt="Our Logo" style="max-width:120px; margin-bottom:1rem;">
     <h1>Meet Your Virtual Real Estate Assistant</h1>
     <p>Instantly answer buyer and renter questions, schedule showings, and streamline your workflow.</p>
     <button class="cta-btn" onclick="scrollToFeatures()">See How It Works</button>
@@ -121,7 +127,7 @@
   </section>
 
   <footer>
-    &copy; <span id="year"></span> Your Agency Name • All Rights Reserved
+    &copy; <span id="year"></span> Core Digital Studio LLC • All Rights Reserved
   </footer>
 
   <script>
@@ -151,6 +157,19 @@
         });
       };
     })(document, "script");
+
+    const hideBranding = () => {
+    const link = document.querySelector('a.branding--link');
+    if (link) {
+      link.style.display = 'none';
+      return true;
+    }
+  };
+
+  // poll every 200ms until it’s gone
+  const interval = setInterval(() => {
+    if (hideBranding()) clearInterval(interval);
+  }, 200);
   </script>
 
 </body>
