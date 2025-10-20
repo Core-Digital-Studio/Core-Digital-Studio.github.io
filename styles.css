@@ -117,6 +117,108 @@ a {
     }
 }
 
+/* Blog link emphasis */
+.nav__menu ul li .blog-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+}
+
+/* Underline-on-hover that signals "click me" without being shouty */
+.nav__menu ul li .blog-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #7dd3fc, #38bdf8); /* light cyan to sky */
+  transition: width 220ms ease;
+}
+.nav__menu ul li .blog-link:hover::after {
+  width: 100%;
+}
+
+/* Small "New" pill to drive attention */
+.nav__blog .pill {
+  display: inline-block;
+  font-size: 11px;
+  line-height: 1;
+  padding: 4px 6px;
+  border-radius: 999px;
+  background: #d1fae5;      /* mint backdrop */
+  color: #065f46;            /* deep teal text */
+  border: 1px solid #10b981; /* emerald edge */
+  transform: translateY(-1px);
+}
+
+/* Optional dropdown for latest posts */
+.nav__dropdown {
+  position: relative;
+}
+.nav__dropdown .dropdown {
+  position: absolute;
+  top: 140%;
+  left: 0;
+  min-width: 320px;
+  background: #0b0b0b;            /* match your dark aesthetic if applicable */
+  color: #e5e7eb;
+  border: 1px solid #1f2937;
+  border-radius: 10px;
+  padding: 10px 0;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-6px);
+  transition: opacity 160ms ease, transform 160ms ease;
+  z-index: 1000;
+}
+.nav__dropdown:hover .dropdown,
+.nav__dropdown:focus-within .dropdown {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.nav__dropdown .dropdown li {
+  list-style: none;
+}
+.nav__dropdown .dropdown a {
+  display: block;
+  padding: 10px 14px;
+  color: inherit;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 1.3;
+}
+.nav__dropdown .dropdown a:hover {
+  background: #111827;  /* subtle hover */
+}
+.nav__dropdown .dropdown .dropdown-secondary a {
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+/* Mobile: stack cleanly and keep dropdown tappable */
+@media (max-width: 768px) {
+  .nav__dropdown .dropdown {
+    position: static;      /* dropdown becomes inline for mobile menus */
+    transform: none;
+    opacity: 1;
+    pointer-events: auto;
+    background: transparent;
+    border: 0;
+    padding: 6px 0 0;
+  }
+  .nav__dropdown .dropdown a {
+    padding: 6px 0;
+  }
+  .nav__blog .pill {
+    margin-left: 4px;
+  }
+}
+
+
 /* BEGIN SECTION DYNAMICBACKGROUND */
 
 .bg {
