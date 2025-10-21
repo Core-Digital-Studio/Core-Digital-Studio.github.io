@@ -1,0 +1,58 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{{ page.title }} | {{ site.title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="shortcut icon" href="{{ '/images/favicon2.svg' | relative_url }}">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+  <link href="{{ '/styles.css' | relative_url }}" rel="stylesheet" type="text/css">
+  <link href="{{ '/index.css'  | relative_url }}" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header__container container">
+      <nav class="nav">
+        <div class="nav__logo-container">
+          <a href="{{ '/' | relative_url }}">
+            <img class="nav__logo" src="{{ '/images/name_logo.svg' | relative_url }}" alt="Core Digital Studio Logo">
+          </a>
+        </div>
+        <div class="nav__menu">
+          <ul>
+            <li><a href="{{ '/' | relative_url }}">Home</a></li>
+            <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- POST -->
+  <main class="main section--alternate2">
+    <div class="section__container container">
+      <article class="blog-article">
+        <h1 class="section__title">{{ page.title }}</h1>
+        <p class="blog-meta">{{ page.date | date: "%B %-d, %Y" }}</p>
+
+        <!-- This is the critical line: renders the post body -->
+        {{ content }}
+      </article>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__container container">
+      <p>&copy; {{ "now" | date: "%Y" }} {{ site.title }}</p>
+    </div>
+  </footer>
+
+  <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
+</body>
+</html>
