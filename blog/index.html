@@ -1,0 +1,32 @@
+---
+layout: null
+title: Blog
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Blog | {{ site.title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="alternate" type="application/rss+xml" href="{{ "/feed.xml" | relative_url }}">
+  <link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+  <header class="wrap">
+    <a href="/">Home</a> | <a href="/blog/">Blog</a>
+  </header>
+
+  <main class="wrap">
+    <h1>Blog</h1>
+    <ul>
+      {% for post in site.posts %}
+      <li style="margin-bottom:1rem;">
+        <a href="{{ post.url | relative_url }}"><strong>{{ post.title }}</strong></a>
+        <small> — {{ post.date | date: "%b %-d, %Y" }}</small><br>
+        <small>{{ post.description }}</small>
+      </li>
+      {% endfor %}
+    </ul>
+  </main>
+</body>
+</html>
