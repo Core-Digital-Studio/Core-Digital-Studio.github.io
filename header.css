@@ -64,6 +64,10 @@
     background-color: #333;
 }
 
+.nav__menu li{
+    align-content: center;
+}
+
 @media (min-width: 768px) {
     .nav__menu {
         display: flex;

@@ -1,36 +1,108 @@
 /* Styles specific to individual blog post pages */
 
 /* Ensure content doesn't hide under the fixed header */
+/* Ensure content doesn't hide under the fixed header */
 body { padding-top: 4rem; }
 
+/* General container and readable width */
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* Hero section above the post */
 .post-hero {
-  background: #fff;
-  padding: 2.5rem 0;
-  border-bottom: 1px solid #eee;
+  background: linear-gradient(180deg, #f3f4f6 0%, #ffffff 100%);
+  border-bottom: 1px solid #e5e7eb;
+  padding: 3rem 0 2rem;
 }
-
+.post-hero__container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
 .post-title {
-  font-size: 2rem;
-  margin: 0.25rem 0 0.5rem;
+  font-size: clamp(2rem, 2.8vw, 2.8rem);
+  line-height: 1.15;
+  margin: 0.75rem 0 1rem;
+  color: #111827;
 }
-
 .post-meta {
-  color: #666;
-  font-size: 0.9rem;
+  color: #6b7280;
+  font-size: 0.95rem;
 }
 
+/* Main article background */
+.main {
+  background: transparent; /* page background remains, prose will look like a card */
+  padding: 3rem 0;
+}
+
+/* Typography for Markdown content */
 .prose {
-  max-width: 700px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+  padding: 3rem 2.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+  color: #1f2937;
+  line-height: 1.8;
+}
+.prose h1, .prose h2, .prose h3 {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+.prose p {
+  margin: 1.25rem 0;
+}
+.prose ul, .prose ol {
+  margin: 1.25rem 0 1.25rem 2rem;
+}
+.prose blockquote {
+  border-left: 4px solid #93c5fd;
+  background: #f1f5f9;
+  padding: 1rem 1.25rem;
+  margin: 2rem 0;
+  font-style: italic;
+  color: #334155;
+}
+.prose img {
+  display: block;
   margin: 2rem auto;
+  border-radius: 8px;
+  max-width: 100%;
+  height: auto;
 }
 
-.post-cta {
-  text-align: center;
-  margin: 2rem 0;
+/* Optional subtle header separation (already present in header.css but safe to reinforce) */
+.header {
+  border-bottom: 1px solid #e5e7eb;
 }
 
-.post-sep {
-  border: 0;
-  border-top: 1px solid #eee;
-  margin: 2rem 0;
+/* Responsive tweaks */
+@media (max-width: 720px) {
+  .prose {
+    padding: 2rem 1.25rem;
+    line-height: 1.7;
+  }
+}
+
+/* Dark theme variants */
+@media (prefers-color-scheme: dark) {
+  .post-hero { background: #0f172a; border-bottom-color: rgba(255,255,255,0.06); }
+  .prose {
+    background: #0b1120;
+    box-shadow: none;
+    color: #e5e7eb;
+  }
+  .prose blockquote {
+    background: rgba(255,255,255,0.03);
+    border-left-color: #2563eb;
+    color: #d1d5db;
+  }
+  .post-title { color: #e5e7eb; }
+  .post-meta { color: #9ca3af; }
 }
