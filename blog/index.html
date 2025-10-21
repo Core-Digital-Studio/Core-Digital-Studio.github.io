@@ -13,8 +13,10 @@ title: Blog
   <!-- Correct relative_url syntax for assets -->
   <link rel="shortcut icon" href="{{ '/images/favicon2.svg' | relative_url }}">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/header.css' | relative_url }}">
   <link href="{{ '/styles.css' | relative_url }}" type="text/css" rel="stylesheet">
   <link href="{{ '/index.css' | relative_url }}" type="text/css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/blog.css' | relative_url }}">
 </head>
 
 <body>
@@ -23,16 +25,21 @@ title: Blog
     <div class="header__container container">
       <nav class="nav">
         <div class="nav__logo-container">
-          <!-- Clicking the logo also returns home -->
           <a href="{{ '/' | relative_url }}">
             <img class="nav__logo" src="{{ '/images/name_logo.svg' | relative_url }}" alt="Core Digital Studio Logo">
           </a>
         </div>
         <div class="nav__menu">
           <ul>
-            <!-- Single clean Home button -->
             <li><a href="{{ '/' | relative_url }}">Home</a></li>
+            <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
+            <li><a class="cta-btn" href="{{ '/request.html' | relative_url }}">Talk to expert</a></li>
           </ul>
+        </div>
+        <div class="nav__toggle">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
       </nav>
     </div>
@@ -61,18 +68,10 @@ title: Blog
 
   <!-- FOOTER -->
   <footer class="footer">
-    <div class="social-icons">
-      <a href="https://www.linkedin.com/in/your-linkedin-profile"><i class="fa-brands fa-linkedin"></i></a>
-      <a href="https://github.com/your-github-profile"><i class="fab fa-github"></i></a>
-    </div>
     <div class="emailBar">
       <a class="emailBarText" href="mailto:Info@coredigitalstudio.com" target="_blank">Info@coredigitalstudio.com</a>
     </div>
-    <div class="footer__container container">
-      <p>&copy; 2025 Core Digital Studio LLC</p>
-    </div>
   </footer>
 
-  <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
 </body>
 </html>

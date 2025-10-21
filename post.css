@@ -1,0 +1,36 @@
+/* Styles specific to individual blog post pages */
+
+/* Ensure content doesn't hide under the fixed header */
+body { padding-top: 4rem; }
+
+.post-hero {
+  background: #fff;
+  padding: 2.5rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.post-title {
+  font-size: 2rem;
+  margin: 0.25rem 0 0.5rem;
+}
+
+.post-meta {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.prose {
+  max-width: 700px;
+  margin: 2rem auto;
+}
+
+.post-cta {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.post-sep {
+  border: 0;
+  border-top: 1px solid #eee;
+  margin: 2rem 0;
+}

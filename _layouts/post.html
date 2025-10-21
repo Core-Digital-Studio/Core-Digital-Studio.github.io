@@ -9,8 +9,10 @@
 
   <link rel="shortcut icon" href="{{ '/images/favicon2.svg' | relative_url }}">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/header.css' | relative_url }}">
   <link href="{{ '/styles.css' | relative_url }}" rel="stylesheet" type="text/css">
   <link href="{{ '/index.css'  | relative_url }}" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="{{ '/post.css' | relative_url }}">
 </head>
 
 <body>
@@ -27,23 +29,52 @@
           <ul>
             <li><a href="{{ '/' | relative_url }}">Home</a></li>
             <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
+            <li><a class="cta-btn" href="{{ '/request.html' | relative_url }}">Talk to expert</a></li>
           </ul>
+        </div>
+        <div class="nav__toggle">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
       </nav>
     </div>
   </header>
 
-  <!-- POST -->
-  <main class="main section--alternate2">
-    <div class="section__container container">
-      <article class="blog-article">
-        <h1 class="section__title">{{ page.title }}</h1>
-        <p class="blog-meta">{{ page.date | date: "%B %-d, %Y" }}</p>
-
-        <!-- This is the critical line: renders the post body -->
-        {{ content }}
-      </article>
+  <!-- HERO -->
+  <section class="post-hero">
+    <div class="post-hero__container container">
+      <p class="post-crumbs"><a href="{{ '/blog/' | relative_url }}">← Back to Blog</a></p>
+      <h1 class="post-title">{{ page.title }}</h1>
+      <p class="post-meta">
+        <span>{{ page.date | date: "%B %-d, %Y" }}</span>
+        <span class="dot">•</span>
+        <span id="reading-time">Reading time</span>
+      </p>
     </div>
+  </section>
+
+  <!-- ARTICLE -->
+  <main class="main">
+    <article class="container prose">
+      {{ content }}
+
+      <hr class="post-sep">
+
+      <div class="post-cta">
+        <p>Want this implemented the right way in your business?</p>
+        <a class="cta-btn" href="{{ '/request.html' | relative_url }}">Book a 30-min consult</a>
+      </div>
+
+      <nav class="post-nav">
+        {% if page.previous %}
+          <a class="post-prev" href="{{ page.previous.url | relative_url }}">← {{ page.previous.title }}</a>
+        {% endif %}
+        {% if page.next %}
+          <a class="post-next" href="{{ page.next.url | relative_url }}">{{ page.next.title }} →</a>
+        {% endif %}
+      </nav>
+    </article>
   </main>
 
   <!-- FOOTER -->
@@ -52,6 +83,19 @@
       <p>&copy; {{ "now" | date: "%Y" }} {{ site.title }}</p>
     </div>
   </footer>
+
+  <!-- Tiny JS: calculate reading time (client-side, no plugins) -->
+  <script>
+    (function() {
+      var el = document.querySelector('.prose');
+      if (!el) return;
+      var text = el.innerText || '';
+      var words = text.trim().split(/\s+/).length;
+      var mins = Math.max(1, Math.round(words / 200)); // 200 wpm
+      var rt = document.getElementById('reading-time');
+      if (rt) rt.textContent = mins + ' min read';
+    })();
+  </script>
 
   <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
 </body>

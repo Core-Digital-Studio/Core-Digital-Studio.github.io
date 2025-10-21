@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "AI Chatbots — What’s Real, What’s Snake Oil, and How to Protect Your Company"
+title: "AI Chatbots: What’s Real, What’s Snake Oil, and How to Protect Your Company"
 description: "Clear, operator-blunt guidance on when AI actually belongs in your workflow."
 ---
 
