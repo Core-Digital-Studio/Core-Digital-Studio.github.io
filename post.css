@@ -89,20 +89,3 @@ body { padding-top: 4rem; }
     line-height: 1.7;
   }
 }
-
-/* Dark theme variants */
-@media (prefers-color-scheme: dark) {
-  .post-hero { background: #0f172a; border-bottom-color: rgba(255,255,255,0.06); }
-  .prose {
-    background: #0b1120;
-    box-shadow: none;
-    color: #e5e7eb;
-  }
-  .prose blockquote {
-    background: rgba(255,255,255,0.03);
-    border-left-color: #2563eb;
-    color: #d1d5db;
-  }
-  .post-title { color: #e5e7eb; }
-  .post-meta { color: #9ca3af; }
-}

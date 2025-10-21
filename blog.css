@@ -36,3 +36,11 @@ body { padding-top: 4rem; }
 .blogBody {
   background-color: #fcf6e5;
 }
+
+.blogBackgroundColor {
+  background-color: #fcf6e5 !important;
+}
+
+.section__subtitle { 
+  margin-bottom: 1rem;
+}
