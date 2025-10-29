@@ -2076,7 +2076,7 @@ button,
   display: -ms-flex;
   display: flex;
   border-bottom: solid 5px #f56a6a;
-  padding: 6em 0 1em 0;
+  padding: 2em 0 1em 0;
   position: relative; }
   #header > * {
     -moz-flex: 1;
@@ -2093,10 +2093,10 @@ button,
     text-align: right; }
   @media screen and (max-width: 1680px) {
     #header {
-      padding-top: 5em; } }
+      padding-top: 1.5em; } }
   @media screen and (max-width: 736px) {
     #header {
-      padding-top: 6.5em; }
+      padding-top: 2.5em; }
       #header .logo {
         font-size: 1.25em;
         margin: 0; }
@@ -2275,4 +2275,98 @@ button,
 
 .removePadding {
   padding: 0 !important;
+}
+
+.clarityCallButton {
+  margin-right: 7px;
+  margin-bottom: 3px;
+}
+
+.spacer {
+  height: 7em;
+  width: fit-content;
+}
+
+/* --- Testimonial / Team Card --- */
+/* color helper to match “primary” purple used in your site */
+.text-primary { color: #6a5af9 !important; }
+
+/* small utility to preserve your HTML from Chrome */
+.sr-spacer-top-25 { margin-top: 1.25rem; }
+
+/* Card shell */
+.team-card{
+  position: relative;
+  max-width: 520px;            /* tweak as needed */
+  margin: 80px auto 40px;      /* space above to allow the floating avatar */
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  padding: 32px;
+  padding-top: 56px;           /* extra top padding so text clears the avatar ring */
+}
+
+/* Floating circular avatar (uses your inline background-image) */
+.team-card .card-img-top{
+  position: absolute;
+  top: -44px;                  /* sits above the card */
+  left: 32px;
+  width: 88px;
+  height: 88px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  border: 3px solid #6a5af9;   /* purple ring */
+  outline: 6px solid #ffffff;  /* white separation ring so it looks “pinned” over the card */
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+/* Content */
+.team-card .card-text-wrapper p{
+  color: #3d4449;              /* aligns with your heading/body palette */
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin-bottom: 1.15em;
+}
+
+.team-card .card-title{
+  margin-top: 0.5rem;
+  margin-bottom: 0.15rem;
+  color: #1f1f3d;
+  font-size: 1.05rem;
+  font-weight: 700;            /* uses Roboto Slab’s weight from your sheet */
+}
+
+/* Role line – uppercase, tracking, purple */
+.team-card .card-text{
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  margin-top: 0.15rem;
+}
+
+/* Optional subtle hover lift (feel free to remove) */
+.team-card:hover{
+  box-shadow: 0 12px 28px rgba(0,0,0,0.10);
+  transform: translateY(-1px);
+  transition: box-shadow .2s ease, transform .2s ease;
+}
+
+/* Responsive polish */
+@media (max-width: 520px){
+  .team-card{
+    margin: 72px 1rem 32px;
+    padding: 28px;
+    padding-top: 52px;
+  }
+  .team-card .card-img-top{
+    left: 24px;
+    width: 80px;
+    height: 80px;
+    top: -40px;
+  }
+}
+
+#headerButtonContainer {
+  text-align: right;
 }
