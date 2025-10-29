@@ -59,9 +59,163 @@
 									</span>
 								</section>
 
-                                <section class="AI we work with">
-                                    
-                                </section>
+																<!-- Logos Carousel -->
+																<section class="logo-belt" aria-label="Trusted by leading AI companies">
+																	<div class="belt-viewport" id="logoViewport">
+																		<div class="belt-track" id="logoTrack">
+																			<!-- ChatGPT -->
+																			<a class="logo" href="https://openai.com" target="_blank" rel="noopener">
+																				<img
+																					src="https://commons.wikimedia.org/wiki/Special:FilePath/ChatGPT_logo_Square.svg"
+																					alt="ChatGPT logo" loading="lazy" decoding="async" />
+																			</a>
+																			<!-- Grok (xAI) -->
+																			<a class="logo" href="https://grok.com" target="_blank" rel="noopener">
+																				<img
+																					src="https://commons.wikimedia.org/wiki/Special:FilePath/Grok-feb-2025-logo.svg"
+																					alt="Grok logo" loading="lazy" decoding="async" />
+																			</a>
+																			<!-- Meta -->
+																			<a class="logo" href="https://about.meta.com" target="_blank" rel="noopener">
+																				<img
+																					src="https://commons.wikimedia.org/wiki/Special:FilePath/Meta_Platforms_Inc._logo.svg"
+																					alt="Meta logo" loading="lazy" decoding="async" />
+																			</a>
+																			<!-- Anthropic -->
+																			<a class="logo" href="https://www.anthropic.com" target="_blank" rel="noopener">
+																				<img
+																					src="https://commons.wikimedia.org/wiki/Special:FilePath/Anthropic_logo.svg"
+																					alt="Anthropic logo" loading="lazy" decoding="async" />
+																			</a>
+																			<!-- duplicate once for seamless loop -->
+																			<a class="logo" href="https://openai.com" aria-hidden="true" tabindex="-1">
+																				<img
+																					src="https://commons.wikimedia.org/wiki/Special:FilePath/ChatGPT_logo_Square.svg"
+																					alt="" />
+																			</a>
+																			<a class="logo" href="https://grok.com" aria-hidden="true" tabindex="-1">
+																				<img
+																					src="https://commons.wikimedia.org/wiki/Special:FilePath/Grok-feb-2025-logo.svg"
+																					alt="" />
+																			</a>
+																			<a class="logo" href="https://about.meta.com" aria-hidden="true" tabindex="-1">
+																				<img
+																					src="https://commons.wikimedia.org/wiki/Special:FilePath/Meta_Platforms_Inc._logo.svg"
+																					alt="" />
+																			</a>
+																			<a class="logo" href="https://www.anthropic.com" aria-hidden="true" tabindex="-1">
+																				<img
+																					src="https://commons.wikimedia.org/wiki/Special:FilePath/Anthropic_logo.svg"
+																					alt="" />
+																			</a>
+																		</div>
+																	</div>
+																</section>
+
+																<style>
+																	.logo-belt { padding: 24px 0; }
+																	.belt-viewport { overflow: hidden; width: 100%; }
+																	.belt-track { display: flex; align-items: center; gap: 56px; will-change: transform; transform: translate3d(0,0,0); }
+																	.logo img { height: 36px; width: auto; display: block; filter: grayscale(1) contrast(1.05); opacity: 0.9; transition: opacity .2s ease; }
+																	.logo img:hover { opacity: 1; }
+																	@media (min-width: 992px) { .logo img { height: 44px; } .belt-track { gap: 72px; } }
+																</style>
+
+																<script>
+																(function () {
+																	const track = document.getElementById('logoTrack');
+																	const viewport = document.getElementById('logoViewport');
+
+																	let isDragging = false;
+																	let startX = 0;
+																	let currentX = 0;
+																	let pending = false;
+																	let autoTimer = null;
+																	const STEP_INTERVAL = 500;
+																	const ANIM_MS = 260;
+
+																	function itemFullWidth(el) {
+																		const rect = el.getBoundingClientRect();
+																		const next = el.nextElementSibling || el;
+																		const r2 = next.getBoundingClientRect();
+																		const gap = Math.max(0, r2.left - rect.right);
+																		return rect.width + gap;
+																	}
+
+																	function stepForward() {
+																		if (pending || isDragging) return;
+																		pending = true;
+																		const first = track.children[0];
+																		const dx = itemFullWidth(first);
+																		track.style.transition = `transform ${ANIM_MS}ms ease`;
+																		track.style.transform = `translateX(${-dx}px)`;
+																		setTimeout(() => {
+																			track.style.transition = 'none';
+																			track.appendChild(first);
+																			track.style.transform = 'translateX(0)';
+																			requestAnimationFrame(() => { pending = false; });
+																		}, ANIM_MS);
+																	}
+
+																	function stepBackward() {
+																		if (pending || isDragging) return;
+																		pending = true;
+																		const last = track.lastElementChild;
+																		const w = itemFullWidth(last);
+																		track.style.transition = 'none';
+																		track.insertBefore(last, track.firstElementChild);
+																		track.style.transform = `translateX(${-w}px)`;
+																		requestAnimationFrame(() => {
+																			track.style.transition = `transform ${ANIM_MS}ms ease`;
+																			track.style.transform = 'translateX(0)';
+																			setTimeout(() => { track.style.transition = 'none'; pending = false; }, ANIM_MS);
+																		});
+																	}
+
+																	function startAuto() { if (!autoTimer) autoTimer = setInterval(stepForward, STEP_INTERVAL); }
+																	function stopAuto()  { if (autoTimer) { clearInterval(autoTimer); autoTimer = null; } }
+
+																	viewport.addEventListener('mouseenter', stopAuto);
+																	viewport.addEventListener('mouseleave', startAuto);
+																	viewport.addEventListener('focusin', stopAuto);
+																	viewport.addEventListener('focusout', startAuto);
+
+																	viewport.addEventListener('pointerdown', (e) => {
+																		stopAuto();
+																		isDragging = true;
+																		startX = e.clientX;
+																		currentX = 0;
+																		viewport.setPointerCapture(e.pointerId);
+																	});
+
+																	viewport.addEventListener('pointermove', (e) => {
+																		if (!isDragging) return;
+																		currentX = e.clientX - startX;
+																		track.style.transition = 'none';
+																		track.style.transform = `translateX(${currentX}px)`;
+																	});
+
+																	function endDrag(e) {
+																		if (!isDragging) return;
+																		isDragging = false;
+																		viewport.releasePointerCapture?.(e.pointerId);
+																		const threshold = (track.children[0].getBoundingClientRect().width) * 0.25;
+																		if (currentX <= -threshold) stepForward();
+																		else if (currentX >= threshold) stepBackward();
+																		else {
+																			track.style.transition = `transform ${ANIM_MS}ms ease`;
+																			track.style.transform = 'translateX(0)';
+																			setTimeout(() => (track.style.transition = 'none'), ANIM_MS);
+																		}
+																		startAuto();
+																	}
+																	viewport.addEventListener('pointerup', endDrag);
+																	viewport.addEventListener('pointercancel', endDrag);
+																	viewport.addEventListener('lostpointercapture', endDrag);
+
+																	startAuto();
+																})();
+																</script>
 
 								<section id="PainPointsSection">
 									<header class="major">
@@ -72,7 +226,7 @@
 										<div class="col-4 col-12-small">
 											<div class="team-card">
 												<div class="card-text-wrapper">
-													<h5 class="card-title">Inefficient Processes</h5>
+													<h5 class="card-title">Under Utilized Data</h5>
 													<p>Processes rely on manual steps, spreadsheets and tribal knowledge—leading to delays, errors and frustrated staff.</p>
 													<a href="#" class="button small">Learn More</a>
 												</div>
