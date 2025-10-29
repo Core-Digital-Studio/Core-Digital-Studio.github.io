@@ -111,7 +111,7 @@ a {
   -webkit-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
   -ms-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
   transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
-  border-bottom: dotted 1px;
+  /* border-bottom: dotted 1px; */
   color: #f56a6a;
   text-decoration: none; }
   a:hover {
@@ -2004,8 +2004,12 @@ button,
 #main, #main > .inner { min-width: 0; }
 
 /* Constrain the carousel viewport/track so it won't expand the page width. */
-.belt-viewport { max-width: 100%; box-sizing: border-box; }
-.belt-track { min-width: 0; }
+.belt-viewport { max-width: 100%; box-sizing: border-box; overflow: hidden; }
+.belt-track { min-width: 0; display:flex; align-items:center; gap:48px; }
+/* Logo sizing to keep consistent visual rhythm */
+.logo { flex: 0 0 160px; display:flex; align-items:center; justify-content:center; height:56px; }
+.logo img { max-height:40px; max-width:100%; height:auto; width:auto; display:block; filter:grayscale(1) contrast(1.05); opacity:0.95; transition: opacity .25s ease, transform .35s ease; }
+@media (min-width: 992px) { .logo { flex: 0 0 200px; height:64px; } .logo img { max-height:48px; } .belt-track { gap:64px; } }
   @media screen and (max-width: 1680px) {
     #sidebar {
       width: 24em; }
@@ -2290,9 +2294,8 @@ button,
   margin-bottom: 3px;
 }
 
-.spacer {
-  height: 7em;
-  width: fit-content;
+.spaceBelow {
+  margin-bottom: 10em;
 }
 
 /* --- Testimonial / Team Card --- */

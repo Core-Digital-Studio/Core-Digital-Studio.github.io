@@ -14,12 +14,14 @@
 
 		<!-- Carousel CSS moved here to avoid inline styles in the body -->
 		<style>
-		  .logo-belt { padding: 24px 0; }
-		  .belt-viewport { overflow: hidden; width: 100%; }
-		  .belt-track { display: flex; align-items: center; gap: 56px; will-change: transform; transform: translate3d(0,0,0); }
-		  .logo img { height: 36px; width: auto; display: block; filter: grayscale(1) contrast(1.05); opacity: 0.9; transition: opacity .2s ease; }
-		  .logo img:hover { opacity: 1; }
-		  @media (min-width: 992px) { .logo img { height: 44px; } .belt-track { gap: 72px; } }
+		  .logo-belt { padding: 28px 0; }
+		  .belt-viewport { overflow: hidden; width: 100%; max-width: 100%; box-sizing: border-box; }
+		  .belt-track { display: flex; align-items: center; gap: 48px; will-change: transform; transform: translate3d(0,0,0); }
+		  /* Make each logo a fixed-width container so differing logo aspect ratios don't change layout */
+		  .logo { flex: 0 0 160px; display: flex; align-items: center; justify-content: center; height: 56px; }
+		  .logo img { max-height: 40px; max-width: 100%; height: auto; width: auto; display: block; filter: grayscale(1) contrast(1.05); opacity: 0.95; transition: opacity .25s ease, transform .35s ease; }
+		  .logo img:hover { opacity: 1; transform: scale(1.03); }
+		  @media (min-width: 992px) { .logo { flex: 0 0 200px; height: 64px; } .logo img { max-height: 48px; } .belt-track { gap: 64px; } }
 		</style>
 	</head>
 	<body class="is-preload">
@@ -71,7 +73,9 @@
 
 																<!-- Logos Carousel -->
 																<section class="logo-belt" aria-label="Trusted by leading AI companies">
+                                                                    <h3 class="center">Models and technology we use often</h3>
 																	<div class="belt-viewport" id="logoViewport">
+                                                                        
 																		<div class="belt-track" id="logoTrack">
 																			<!-- ChatGPT -->
 																			<a class="logo" href="https://openai.com" target="_blank" rel="noopener">
@@ -132,8 +136,7 @@
 											<div class="team-card">
 												<div class="card-text-wrapper">
 													<h5 class="card-title">Under Utilized Data</h5>
-													<p>Processes rely on manual steps, spreadsheets and tribal knowledge—leading to delays, errors and frustrated staff.</p>
-													<a href="#" class="button small">Learn More</a>
+													<p>example text</p>
 												</div>
 											</div>
 										</div>
@@ -141,9 +144,9 @@
 										<div class="col-4 col-12-small">
 											<div class="team-card">
 												<div class="card-text-wrapper">
-													<h5 class="card-title">Lack of Visibility</h5>
+                                                    
+													<h5 class="card-title">Slow Sales Systems</h5>
 													<p>You can't see bottlenecks or measure outcomes clearly, making it hard to improve or scale operations.</p>
-													<a href="#" class="button small">Learn More</a>
 												</div>
 											</div>
 										</div>
@@ -151,9 +154,8 @@
 										<div class="col-4 col-12-small">
 											<div class="team-card">
 												<div class="card-text-wrapper">
-													<h5 class="card-title">Manual Rework & Errors</h5>
-													<p>Repeated manual work creates costly rework and inconsistent customer experiences—automation prevents that.</p>
-													<a href="#" class="button small">Learn More</a>
+													<h5 class="card-title">Manual repetitive work</h5>
+													<p>Repeated manual work creates costly rework and inconsistent customer experiences. Automation prevents that.</p>
 												</div>
 											</div>
 										</div>
@@ -167,35 +169,35 @@
 									</header>
                                     <p> Follow our proven process to erase operational chaos and replace it with your business's full potential. </p>
                                     <div class="row gtr-200">
-                                        <div class="col-6 col-12-small">
+                                        <div class="col-6 col-12-small spaceBelow">
                                             <span class="image object">
                                                 <img src="images/pic01.jpg" alt="Proven Process Illustration" />
                                             </span>
                                         </div>
-                                        <div class="col-6 col-12-small">
+                                        <div class="col-6 col-12-small spaceBelow">
                                             <h3><strong>Step 1:</strong> Blueprint</h3>
                                             <p>In arcu accumsan arcu adipiscing accumsan orci ac. Felis id enim aliquet. Accumsan ac integer lobortis commodo ornare aliquet accumsan erat tempus amet porttitor. Ante commodo blandit adipiscing integer semper orci eget. Faucibus commodo adipiscing mi eu nullam accumsan morbi arcu ornare odio mi adipiscing nascetur lacus ac interdum morbi accumsan vis mi accumsan.</p>
                                             <a href="#" class="button Default primary clarityCallButton">Book a Clarity Call</a>
                                         </div>
-                                        <!-- <div class="spacer"></div> -->
-                                        <div class="col-6 col-12-small">
+                                        <div class="col-6 col-12-small spaceBelow">
                                             <h3><strong>Step 2:</strong> Implementation</h3>
                                             <p>In arcu accumsan arcu adipiscing accumsan orci ac. Felis id enim aliquet. Accumsan ac integer lobortis commodo ornare aliquet accumsan erat tempus amet porttitor. Ante commodo blandit adipiscing integer semper orci eget. Faucibus commodo adipiscing mi eu nullam accumsan morbi arcu ornare odio mi adipiscing nascetur lacus ac interdum morbi accumsan vis mi accumsan.</p>
+                                            <a href="#" class="button Default primary clarityCallButton">Book a Clarity Call</a>
                                         </div>
-                                        <div class="col-6 col-12-small">
+                                        <div class="col-6 col-12-small spaceBelow">
                                             <span class="image object">
                                                 <img src="images/pic01.jpg" alt="Proven Process Illustration" />
                                             </span>
                                         </div>
-                                        <!-- <div class="spacer"></div> -->
-                                        <div class="col-6 col-12-small">
+                                        <div class="col-6 col-12-small spaceBelow">
                                             <span class="image object">
                                                 <img src="images/pic01.jpg" alt="Proven Process Illustration" />
                                             </span>
                                         </div>
-                                        <div class="col-6 col-12-small">
+                                        <div class="col-6 col-12-small spaceBelow">
                                             <h3><strong>Step 3:</strong> Optimize</h3>
                                             <p>In arcu accumsan arcu adipiscing accumsan orci ac. Felis id enim aliquet. Accumsan ac integer lobortis commodo ornare aliquet accumsan erat tempus amet porttitor. Ante commodo blandit adipiscing integer semper orci eget. Faucibus commodo adipiscing mi eu nullam accumsan morbi arcu ornare odio mi adipiscing nascetur lacus ac interdum morbi accumsan vis mi accumsan.</p>
+                                            <a href="#" class="button Default primary clarityCallButton">Book a Clarity Call</a>
                                         </div>
                                     </div>
                                 </section>
@@ -214,8 +216,7 @@
                                                 <div class="card-text-wrapper">
                                                     <div class="sr-spacer-top-25">
                                                         <blockquote>
-                                                        Workflow Autopilot is hands down one of the best investments we’ve made as a business. They help us live up to our value of excellence.
-                                                        If you have any doubts, leave them at the door and jump in!
+                                                        Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.
                                                         </blockquote>
                                                     </div>
                                                     <h5 class="card-title">Dawn Raymond</h5>
@@ -234,12 +235,11 @@
                                                 <div class="card-text-wrapper">
                                                     <div class="sr-spacer-top-25">
                                                         <blockquote>
-                                                        Workflow Autopilot is hands down one of the best investments we’ve made as a business. They help us live up to our value of excellence.
-                                                        If you have any doubts, leave them at the door and jump in!
+                                                        Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.
                                                         </blockquote>
                                                     </div>
-                                                    <h5 class="card-title">Dawn Raymond</h5>
-                                                    <h6 class="card-text text-primary">Director of Operations, Rant-N-Rave</h6>
+                                                    <h5 class="card-title">name</h5>
+                                                    <h6 class="card-text text-primary">Position</h6>
                                                 </div>
                                             </div>
                                         </div>
@@ -254,12 +254,11 @@
                                                 <div class="card-text-wrapper">
                                                     <div class="sr-spacer-top-25">
                                                         <blockquote>
-                                                        Workflow Autopilot is hands down one of the best investments we’ve made as a business. They help us live up to our value of excellence.
-                                                        If you have any doubts, leave them at the door and jump in!
+                                                        Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.
                                                         </blockquote>
                                                     </div>
-                                                    <h5 class="card-title">Dawn Raymond</h5>
-                                                    <h6 class="card-text text-primary">Director of Operations, Rant-N-Rave</h6>
+                                                    <h5 class="card-title">Name</h5>
+                                                    <h6 class="card-text text-primary">Position</h6>
                                                 </div>
                                             </div>
                                         </div>
@@ -557,8 +556,8 @@
 			  let currentX = 0;
 			  let pending = false;
 			  let autoTimer = null;
-			  const STEP_INTERVAL = 500;   // idle tick every 0.5s
-			  const ANIM_MS = 260;         // brief step animation time
+				const STEP_INTERVAL = 3000;   // idle tick every 3s (slower)
+				const ANIM_MS = 600;         // smoother step animation time (ms)
 
 			  function itemFullWidth(el) {
 			    const rect = el.getBoundingClientRect();
